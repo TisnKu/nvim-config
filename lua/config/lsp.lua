@@ -93,29 +93,29 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
 
-if utils.executable("pylsp") then
-  lspconfig.pylsp.setup {
-    on_attach = custom_attach,
-    settings = {
-      pylsp = {
-        plugins = {
-          pylint = { enabled = true, executable = "pylint" },
-          pyflakes = { enabled = false },
-          pycodestyle = { enabled = false },
-          jedi_completion = { fuzzy = true },
-          pyls_isort = { enabled = true },
-          pylsp_mypy = { enabled = true },
-        },
-      },
-    },
-    flags = {
-      debounce_text_changes = 200,
-    },
-    capabilities = capabilities,
-  }
-else
-  vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+--if utils.executable("pylsp") then
+--  lspconfig.pylsp.setup {
+--    on_attach = custom_attach,
+--    settings = {
+--      pylsp = {
+--        plugins = {
+--          pylint = { enabled = true, executable = "pylint" },
+--          pyflakes = { enabled = false },
+--          pycodestyle = { enabled = false },
+--          jedi_completion = { fuzzy = true },
+--          pyls_isort = { enabled = true },
+--          pylsp_mypy = { enabled = true },
+--        },
+--      },
+--    },
+--    flags = {
+--      debounce_text_changes = 200,
+--    },
+--    capabilities = capabilities,
+--  }
+--else
+--  vim.notify("pylsp not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+--end
 
 -- if utils.executable('pyright') then
 --   lspconfig.pyright.setup{
@@ -216,3 +216,41 @@ vim.diagnostic.config {
 lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
+
+-- Typescript language server
+lspconfig.tsserver.setup {}
+
+-- Rust language server
+local opts = {
+  tools = {
+      runnables = {
+          use_telescope = true
+      },
+      inlay_hints = {
+          auto = true,
+          show_parameter_hints = true,
+          parameter_hints_prefix = "",
+          other_hints_prefix = "",
+      },
+  },
+
+  -- all the opts to send to nvim-lspconfig
+  -- these override the defaults set by rust-tools.nvim
+  -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+  server = {
+      -- on_attach is a callback called when the language server attachs to the buffer
+      -- on_attach = on_attach,
+      settings = {
+          -- to enable rust-analyzer settings visit:
+          -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+          ["rust-analyzer"] = {
+              -- enable clippy on save
+              checkOnSave = {
+                  command = "clippy"
+              },
+          }
+      }
+  },
+}
+
+require('rust-tools').setup(opts)

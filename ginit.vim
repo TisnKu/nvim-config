@@ -4,6 +4,16 @@ cnoremap <S-Insert> <C-R>+
 nnoremap <silent> <C-6> <C-^>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          config for neovide                          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neovide related globals
+if exists("g:neovide")
+  " Put anything you want to happen only in Neovide here
+  let g:neovide_cursor_animation_length=0.1
+  let g:neovide_cursor_trail_size=0.2
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          config for nvim-qt                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To check if neovim-qt is running, use `exists('g:GuiLoaded')`,

@@ -350,16 +350,25 @@ packer.startup {
     -- show and trim trailing whitespaces
     use { "jdhao/whitespace.nvim", event = "VimEnter" }
 
-    -- file explorer
-    use {
-      "kyazdani42/nvim-tree.lua",
-      requires = { "kyazdani42/nvim-web-devicons" },
-      config = [[require('config.nvim-tree')]],
-    }
+--     -- file explorer
+--     use {
+--       "kyazdani42/nvim-tree.lua",
+--       requires = { "kyazdani42/nvim-web-devicons" },
+--       config = [[require('config.nvim-tree')]],
+--     }
 
     use { "ii14/emmylua-nvim", ft = "lua" }
 
     use { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = [[require('config.fidget-nvim')]] }
+
+    -- customized start from here --
+    use {'preservim/nerdtree'}
+
+    use {'jiangmiao/auto-pairs'}
+
+    -- rust vim
+    use {'rust-lang/rust.vim'}
+    use {'simrat39/rust-tools.nvim'}
   end,
   config = {
     max_jobs = 16,
