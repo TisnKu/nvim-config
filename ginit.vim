@@ -3,15 +3,6 @@ inoremap <silent> <S-Insert>  <C-R>+
 cnoremap <S-Insert> <C-R>+
 nnoremap <silent> <C-6> <C-^>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                          config for neovide                          "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neovide related globals
-if exists("g:neovide")
-  " Put anything you want to happen only in Neovide here
-  let g:neovide_cursor_animation_length=0.1
-  let g:neovide_cursor_trail_size=0.2
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          config for nvim-qt                          "
@@ -73,12 +64,12 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             config for neovide                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists("g:neovide")
-  set guifont=Hack\ NF:h10
-  let g:neovide_transparency = 1.0
-  let g:neovide_cursor_animation_length = 0.1
-  let g:neovide_cursor_trail_size=0.3
-  let g:neovide_cursor_vfx_mode = ""
-  let g:neovide_cursor_vfx_particle_density=10.0
-  let g:neovide_cursor_vfx_opacity=150.0
-endif
+"  if exists("g:neovide")
+"    set guifont=Hack\ NF:h10
+"    let g:neovide_transparency = 1.0
+"    let g:neovide_cursor_animation_length = 0.1
+"    let g:neovide_cursor_trail_size=0.3
+"    let g:neovide_cursor_vfx_mode = ""
+"    let g:neovide_cursor_vfx_particle_density=10.0
+"    let g:neovide_cursor_vfx_opacity=150.0
+"  endif

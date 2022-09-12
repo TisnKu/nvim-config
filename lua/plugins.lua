@@ -333,9 +333,6 @@ packer.startup {
       use { "ojroques/vim-oscyank", cmd = { "OSCYank", "OSCYankReg" } }
     end
 
-    -- The missing auto-completion for cmdline!
-    use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
-
     -- showing keybindings
     use {
       "folke/which-key.nvim",
@@ -350,13 +347,6 @@ packer.startup {
     -- show and trim trailing whitespaces
     use { "jdhao/whitespace.nvim", event = "VimEnter" }
 
---     -- file explorer
---     use {
---       "kyazdani42/nvim-tree.lua",
---       requires = { "kyazdani42/nvim-web-devicons" },
---       config = [[require('config.nvim-tree')]],
---     }
-
     use { "ii14/emmylua-nvim", ft = "lua" }
 
     use { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = [[require('config.fidget-nvim')]] }
@@ -364,7 +354,7 @@ packer.startup {
     -- customized start from here --
     use {'preservim/nerdtree'}
 
-    use {'jiangmiao/auto-pairs'}
+    -- use {'jiangmiao/auto-pairs'}
 
     -- rust vim
     use {'rust-lang/rust.vim'}
